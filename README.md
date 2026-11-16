@@ -16,7 +16,7 @@ Requires Node.js 20 or later. No dependency installation is needed.
 npm run dev
 ```
 
-Open http://localhost:5173.
+Open http://127.0.0.1:5188 and keep the terminal running. Luscore uses its own port so it does not open another development project running on port 5173. `npm start` also starts the site.
 
 ## Validate and build
 
@@ -25,6 +25,8 @@ npm run check
 npm run build
 npm run preview
 ```
+
+`npm run preview` rebuilds the latest files before starting the preview at http://127.0.0.1:5188. To open without a server, use `dist/index.html`; the root `index.html` is the development entry point and requires the server.
 
 The build creates a portable `dist/index.html` with embedded CSS and JavaScript. Open it directly in a browser, or deploy `dist/` to any static web host. Set the host's build command to `npm run build` and output directory to `dist`. Domain configuration is separate; this source does not change DNS for luscore.com.
 
