@@ -74,7 +74,8 @@ function targetGeometry() {
   return {
     x: w * .58,
     y: h * .48,
-    radius: Math.min(w * .32, h * .42),
+    // Enlarge the artwork while keeping the core and service paths anchored.
+    radius: Math.min(w * .32, h * .42) * 1.25,
     rx: Math.min(w * .30, h * .44),
     ry: Math.min(h * .29, w * .24),
   };

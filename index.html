@@ -123,6 +123,7 @@ h1 em { font-style: normal; background: linear-gradient(115deg, #f0e9fd 20%, #b2
 .is-entering .footer { animation-delay: .15s; }
 @keyframes arrive { from { opacity: 0; } to { opacity: 1; } }
 
+@media (min-width: 761px) { .static-disc { transform: translate(-50%, -50%) rotate(-20deg) scale(1.25); } .static-core { transform: translate(-50%, -50%) scale(1.25); } }
 @media (min-width: 1700px) { .service-panel { width: 440px; right: 48px; } .panel-body { padding: 20px 36px 28px; } .panel-art { height: 150px; } .panel-body h2 { font-size: 34px; } .panel-description { font-size: 14px; } .capabilities li { font-size: 12px; padding: 13px 0; } .panel-cta { padding: 17px; font-size: 12px; } .service-node { font-size: 12px; } }
 @media (max-width: 1100px) { .header { padding: 0 32px; } .header-descriptor { display: none; } .intro { left: 32px; bottom: 132px; } .footer { left: 32px; right: 32px; } .footer-note { display: none; } .service-panel { width: 350px; right: 24px; } .panel-art { height: 85px; } .panel-body { padding: 8px 24px 18px; } .panel-body h2 { font-size: 27px; } .service-node { font-size: 10px; gap: 7px; padding-right: 10px; } .node-symbol { width: 28px; height: 28px; font-size: 19px; } .explore-hint { left: 67%; } }
 @media (max-height: 760px) and (min-width: 761px) { .header { height: 95px; } .scene-label { top: 105px; } .intro { bottom: 122px; } h1 { font-size: 59px; } .service-panel { top: 91px; bottom: 100px; } .panel-art { height: 63px; } .panel-description { margin-bottom: 18px; } .panel-body h2 { font-size: 26px; } .panel-kicker { margin-bottom: 10px; } .panel-topline { padding-top: 12px; } .explore-hint { bottom: 125px; } }
@@ -815,7 +816,8 @@ function targetGeometry() {
   return {
     x: w * .58,
     y: h * .48,
-    radius: Math.min(w * .32, h * .42),
+    // Enlarge the artwork while keeping the core and service paths anchored.
+    radius: Math.min(w * .32, h * .42) * 1.25,
     rx: Math.min(w * .30, h * .44),
     ry: Math.min(h * .29, w * .24),
   };
