@@ -1,0 +1,14 @@
+{
+  "name": "luscore-universe",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Luscore — Light at the Core. An interactive software universe.",
+  "scripts": {
+    "dev": "node scripts/serve.mjs",
+    "build": "node scripts/build.mjs",
+    "preview": "node scripts/serve.mjs --dist",
+    "check": "node --check src/main.js && node --check src/galaxy.js && node --check src/spark.js && node --check src/services.js && node --check scripts/build.mjs && node --check scripts/serve.mjs"
+  },
+  "engines": { "node": ">=20" }
+}
