@@ -6,6 +6,8 @@ A software studio website with an interactive galaxy homepage and a readable Abo
 
 The original brief is an immersive, Dataland-inspired universe for Luscore. Keep the galaxy anchored in place while it rotates continuously; mouse movement must not pan or tilt the scene. Services orbit the core and reveal information in a side panel when selected. The desktop pointer is a small idea spark with a comet trail. Interactions should feel quick and responsive. Use the approved orbital-globe wordmark from the LUSCORE Brand Package, with the globe forming the O.
 
+Keep the homepage's established visual design, layout, and interactions intact. Add explanations and SEO content on separate pages; metadata and crawl improvements can be made without adding visible sections, navigation controls, or extra content to the service panels. The existing footer tagline links to About with its original appearance.
+
 The project now lives in the `luscore.com` subfolder of `10_Luscore`. Its GitHub destination is https://github.com/avdavit/luscore.com.
 
 ## Run locally
@@ -30,7 +32,7 @@ npm run preview
 
 The build writes the same portable homepage to the root `index.html`, `dist/index.html`, and `dist/Luscore-Preview.html`, embedding CSS, JavaScript, and brand artwork without network fonts or module imports. It also writes `about.html`, `robots.txt`, and `sitemap.xml` to both the root and `dist/`. Each HTML page is self-contained; keep the two pages together for navigation when opening downloaded files. Open them directly in a browser, or deploy `dist/` to any static web host. Set the host's build command to `npm run build` and output directory to `dist`. Domain configuration is separate; this source does not change DNS for luscore.com. Rebuild after source edits before sharing or committing the generated files.
 
-The homepage's About link opens `about.html`, which has its own title, description, canonical URL, and AboutPage structured data. All seven service descriptions and capabilities are generated into its HTML from `src/services.js`, so they are available without JavaScript or clicking. The development server serves the generated About page; rebuild after editing its source. The sitemap lists the two canonical production URLs and excludes the preview alias.
+The homepage's existing footer tagline links to `about.html`, which has its own title, description, canonical URL, and AboutPage structured data. All seven service descriptions and capabilities are generated into its HTML from `src/services.js`, so they are available without JavaScript or clicking. The development server serves the generated About page; rebuild after editing its source. The sitemap lists the two canonical production URLs and excludes the preview alias.
 
 ## Edit
 

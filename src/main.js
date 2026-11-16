@@ -117,7 +117,6 @@ function openService(index, trigger) {
   const capabilities = document.querySelector('#panel-capabilities');
   capabilities.replaceChildren(...service.capabilities.map(text => { const item = document.createElement('li'); item.textContent = text; return item; }));
   document.querySelector('#panel-cta').href = `mailto:info@luscore.com?subject=${encodeURIComponent(`Let’s build something — ${service.name}`)}`;
-  document.querySelector('#panel-learn-more').href = `./about.html#service-${service.id}`;
   panel.hidden = false;
   panel.inert = false;
   universe.classList.add('panel-open');
