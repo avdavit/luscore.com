@@ -231,7 +231,15 @@ list.addEventListener('keydown', event => {
     listButtons[(next + services.length) % services.length].focus();
   }
 });
-document.addEventListener('click', event => { if (!picker.contains(event.target)) setPicker(false); });
+document.addEventListener('click', event => {
+  const insidePicker = picker.contains(event.target);
+  if (!insidePicker) setPicker(false);
+  // Let panel controls and service selectors handle their own clicks.
+  // In particular, the click that opens a service must not also close it.
+  if (selected >= 0 && !insidePicker && !panel.contains(event.target) && !event.target.closest('.service-node')) {
+    closePanel();
+  }
+});
 document.addEventListener('keydown', event => {
   if (event.key !== 'Escape') return;
   if (!list.hidden) { setPicker(false); pickerToggle.focus(); }
