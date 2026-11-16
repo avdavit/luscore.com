@@ -3,11 +3,13 @@ import { readFile, stat } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 
-const root = fileURLToPath(new URL(process.argv.includes('--dist') ? '../dist/' : '../', import.meta.url));
+const preview = process.argv.includes('--dist');
+const root = fileURLToPath(new URL(preview ? '../dist/' : '../', import.meta.url));
+const entry = preview ? 'index.html' : 'src/page.html';
 const port = Number(process.env.PORT || 5188);
 const host = '127.0.0.1';
 try {
-  await stat(path.join(root, 'index.html'));
+  await stat(path.join(root, entry));
 } catch {
   console.error('The website files are missing. Run npm run build, then npm run preview from the luscore.com folder.');
   process.exit(1);
@@ -17,11 +19,11 @@ const server = http.createServer(async (request, response) => {
   try {
     const pathname = decodeURIComponent(new URL(request.url, 'http://localhost').pathname);
     const relative = pathname.replace(/^\/+/, '') || 'index.html';
-    if (relative.split('/').some(part => part.startsWith('.')) || !['index.html', 'src', 'public'].includes(relative.split('/')[0])) {
+    if (relative.split('/').some(part => part.startsWith('.')) || !['index.html', 'Luscore-Preview.html', 'src', 'public'].includes(relative.split('/')[0])) {
       response.writeHead(404).end('Not found');
       return;
     }
-    const file = path.resolve(root, relative);
+    const file = path.resolve(root, relative === 'index.html' ? entry : relative);
     if (!file.startsWith(root) || !(await stat(file)).isFile()) throw new Error('Not found');
     response.writeHead(200, { 'Content-Type': types[path.extname(file)] || 'application/octet-stream', 'Cache-Control': 'no-cache', 'X-Content-Type-Options': 'nosniff' });
     response.end(await readFile(file));

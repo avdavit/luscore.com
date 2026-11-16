@@ -26,9 +26,9 @@ npm run build
 npm run preview
 ```
 
-`npm run preview` rebuilds the latest files before starting the preview at http://127.0.0.1:5188. To open without a server, use `dist/index.html`; the root `index.html` is the development entry point and requires the server.
+`npm run preview` rebuilds the latest files before starting the preview at http://127.0.0.1:5188. To open without a server or in ChatGPT's file preview, use `index.html` or `dist/Luscore-Preview.html`. Both are self-contained generated files; do not edit them directly.
 
-The build creates a portable `dist/index.html` with embedded CSS and JavaScript. Open it directly in a browser, or deploy `dist/` to any static web host. Set the host's build command to `npm run build` and output directory to `dist`. Domain configuration is separate; this source does not change DNS for luscore.com.
+The build writes the same portable page to the root `index.html`, `dist/index.html`, and `dist/Luscore-Preview.html`, embedding CSS, JavaScript, and brand artwork without network fonts or module imports. Open it directly in a browser, or deploy `dist/` to any static web host. Set the host's build command to `npm run build` and output directory to `dist`. Domain configuration is separate; this source does not change DNS for luscore.com. Rebuild after source edits before sharing or committing the root HTML file.
 
 ## Edit
 
@@ -37,13 +37,13 @@ The build creates a portable `dist/index.html` with embedded CSS and JavaScript.
 - `src/galaxy.js`: Procedural shaders, particle renderer, and GPU lifecycle.
 - `src/main.js`: Service selection, motion controls, keyboard access, and scene layout.
 - `src/spark.js`: Comet cursor, fading particle trail, and service-to-core light paths.
-- `index.html`: Brand, contact links, and SEO metadata.
+- `src/page.html`: Editable page template, brand, contact links, and SEO metadata. The development server serves this template with the current CSS and JavaScript files.
 - `public/luscore-logo.svg`: Approved white/gold horizontal wordmark without the tagline, adapted from the brand package with only its background removed.
 - `public/favicon.svg`: Matching orbital globe app icon from the brand package.
 
 The build embeds both SVG brand assets into the portable HTML, so the logo and favicon also work when the built file is opened directly.
 
-Contact buttons open the visitor's email application with a service-specific subject. There is no backend or simulated form submission. Google Fonts enhances the typography; system fonts are used if unavailable.
+Contact buttons open the visitor's email application with a service-specific subject. There is no backend or simulated form submission. Development loads Google Fonts when available; standalone previews use system fonts to work without external requests.
 
 Animation respects reduced-motion preferences and can be paused. Background rendering stops when the page is hidden. The artwork falls back to CSS when WebGL is unavailable. The stationary service selector supports keyboard navigation independently of the orbits.
 

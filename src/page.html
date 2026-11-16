@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#060811" />
+    <meta name="description" content="Luscore builds AI solutions, mobile apps, websites, and enterprise software. Explore a universe of possibilities. Light at the Core." />
+    <meta property="og:title" content="Luscore — Light at the Core" />
+    <meta property="og:description" content="Intelligence in everything we build. Explore our universe of AI, mobile, web, and enterprise software development." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://luscore.com/" />
+    <link rel="canonical" href="https://luscore.com/" />
+    <link rel="icon" type="image/svg+xml" href="/public/favicon.svg" />
+    <link rel="stylesheet" href="/src/style.css" />
+    <title>Luscore — Light at the Core</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#service-picker">Explore services</a>
+    <div class="universe" id="universe">
+      <div class="static-galaxy" aria-hidden="true"><div class="static-disc"></div><div class="static-core"></div></div>
+      <canvas id="galaxy" aria-hidden="true"></canvas>
+      <canvas id="idea-spark" aria-hidden="true"></canvas>
+      <div class="vignette" aria-hidden="true"></div>
+      <header class="header">
+        <a class="brand" href="#" aria-label="Luscore home">
+          <img class="brand-logo" src="/public/luscore-logo.svg" alt="Luscore" width="1160" height="300" />
+        </a>
+        <span class="header-descriptor">INDEPENDENT MINDS. INFINITE POSSIBILITIES.</span>
+        <a class="contact-link" href="mailto:info@luscore.com">Let’s talk <span aria-hidden="true">↗</span></a>
+      </header>
+
+      <main id="main">
+        <div class="scene-label" aria-hidden="true"><span class="live-dot"></span> A UNIVERSE OF POSSIBILITIES</div>
+        <div class="orbital-guide" aria-hidden="true"><div></div><div></div><div></div></div>
+        <nav class="orbit-services" id="orbit-services" aria-label="Orbiting services"></nav>
+        <div class="core-caption" aria-hidden="true"><span>LUSCORE</span><span>THE SOURCE OF WHAT’S NEXT</span></div>
+        <section class="intro" aria-labelledby="intro-title">
+          <div class="eyebrow"><span></span> SOFTWARE, WITH A SPARK.</div>
+          <h1 id="intro-title">Light at<br />the <em>Core.</em></h1>
+          <p>Intelligence in everything we build.</p>
+        </section>
+        <div class="explore-hint" aria-hidden="true"><span class="hint-cross">✳</span><span>Every idea begins with a spark.<br /><strong>Explore what yours could become.</strong></span></div>
+        <aside class="service-panel" id="service-panel" aria-labelledby="panel-title" hidden inert>
+          <div class="panel-topline"><span id="panel-index"></span><span>OUR UNIVERSE</span><button class="icon-button close-panel" type="button" aria-label="Close service details">✕</button></div>
+          <div class="panel-art" id="panel-art" aria-hidden="true"><div class="art-orbit a"></div><div class="art-orbit b"></div><div class="art-orbit c"></div><div class="art-seed"></div><span id="panel-symbol"></span></div>
+          <div class="panel-body" id="panel-body">
+            <p class="panel-kicker" id="panel-kicker"></p>
+            <h2 id="panel-title" tabindex="-1"></h2>
+            <p class="panel-description" id="panel-description"></p>
+            <div class="capabilities-heading">WHAT WE CAN CREATE</div>
+            <ul class="capabilities" id="panel-capabilities"></ul>
+            <a class="panel-cta" id="panel-cta" href="mailto:info@luscore.com">Bring your idea to life <span aria-hidden="true">↗</span></a>
+            <a class="panel-email" href="mailto:info@luscore.com">info@luscore.com</a>
+          </div>
+          <div class="panel-navigation"><button id="previous-service" type="button" aria-label="Previous service">←</button><span id="panel-position"></span><button id="next-service" type="button" aria-label="Next service">→</button></div>
+        </aside>
+      </main>
+
+      <footer class="footer">
+        <div class="footer-left">
+          <div class="service-picker" id="service-picker">
+            <button class="picker-toggle" id="picker-toggle" type="button" aria-expanded="false" aria-controls="service-list"><span class="grid-icon" aria-hidden="true">⊞</span> Explore services <span class="picker-count">07</span><span class="picker-chevron" aria-hidden="true">⌃</span></button>
+            <div class="service-list" id="service-list" hidden></div>
+          </div>
+          <span class="footer-note">BUILT AROUND YOUR NEXT BIG IDEA.</span>
+        </div>
+        <div class="footer-right">
+          <span class="scene-status"><span class="live-dot"></span><span id="motion-label">UNIVERSE IN MOTION</span></span>
+          <button class="motion-toggle icon-button" id="motion-toggle" type="button" aria-label="Pause animation" aria-pressed="false"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7 5v10M13 5v10"/></svg></button>
+          <span class="copyright">© <span id="year">2026</span> LUSCORE</span>
+        </div>
+      </footer>
+      <div class="sr-only" id="announcement" role="status" aria-live="polite"></div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
