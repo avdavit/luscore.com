@@ -143,6 +143,11 @@ function closePanel() {
   listButtons.forEach(button => button.setAttribute('aria-expanded', 'false'));
   galaxy.targetAccent = [.66, .42, 1];
   lastTrigger?.focus({ preventScroll: true });
+  // Restoring focus after reading details must not hold the service orbit still.
+  // A fresh hover or keyboard focus will pause it again for selection.
+  orbitFocus = false;
+  orbitHover = false;
+  resetPointer();
   closeTimeout = setTimeout(() => { panel.hidden = true; }, reducedMotion.matches ? 0 : 280);
   document.querySelector('#announcement').textContent = 'Service details closed.';
   requestDraw();
