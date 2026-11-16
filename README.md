@@ -38,8 +38,8 @@ The build writes the same portable page to the root `index.html`, `dist/index.ht
 - `src/main.js`: Service selection, motion controls, keyboard access, and scene layout.
 - `src/spark.js`: Comet cursor, fading particle trail, and service-to-core light paths.
 - `src/page.html`: Editable page template, brand, contact links, and SEO metadata. The development server serves this template with the current CSS and JavaScript files.
-- `public/luscore-logo.svg`: Approved white/gold horizontal wordmark without the tagline, adapted from the brand package with only its background removed.
-- `public/favicon.svg`: Matching orbital globe app icon from the brand package.
+- `public/luscore-logo.svg`: Approved monochrome white horizontal wordmark without the tagline, using the transparent artwork from the brand package.
+- `public/favicon.svg`: Matching white-on-black orbital globe icon from the brand package.
 
 The build embeds both SVG brand assets into the portable HTML, so the logo and favicon also work when the built file is opened directly.
 
